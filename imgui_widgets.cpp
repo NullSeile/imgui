@@ -2307,7 +2307,7 @@ bool ImGui::DragBehaviorT(ImGuiDataType data_type, TYPE* v, float v_speed, const
     {
         // When using logarithmic sliders, we need to clamp to avoid hitting zero, but our choice of clamp value greatly affects slider precision. We attempt to use the specified precision to estimate a good lower bound.
         const int decimal_precision = is_floating_point ? ImParseFormatPrecision(format, 3) : 1;
-        logarithmic_zero_epsilon = ImPow(0.1f, (float)decimal_precision);
+        logarithmic_zero_epsilon = ImPow(0.1f, (float)(decimal_precision == -1 ? DBL_DIG : decimal_precision));
 
         // Convert to parametric space, apply delta, convert back
         float v_old_parametric = ScaleRatioFromValueT<TYPE, SIGNEDTYPE, FLOATTYPE>(data_type, v_cur, v_min, v_max, is_logarithmic, logarithmic_zero_epsilon, zero_deadzone_halfsize);
