@@ -2,6 +2,7 @@
 bin/
 bin-int/
 *.vcxproj
+*.vcxproj.filters
 
 ## OSX artifacts
 .DS_Store
