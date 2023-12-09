@@ -4,6 +4,7 @@ bin-int/
 *.vcxproj
 *.vcxproj.filters
 Makefile
+.vscode
 
 ## OSX artifacts
 .DS_Store
